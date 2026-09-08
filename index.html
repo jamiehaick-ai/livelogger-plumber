@@ -24,6 +24,7 @@
    ================================================================= */
 const PROJECT_NAME = "Temporary Lodging Facility"; // fixed for the whole job — not dictated daily
 const COMPANY_NAME = "Jamie Haick LLC";     // your own business — this copy is for your own use, not a handoff
+const SUBCONTRACTOR_NAME = "Mesa";          // what actually goes on Bryan Construction's form as "Subcontractor" -- matches the name already printed on their blank template
 const PRODUCT_NAME = "LiveLogger Plumber"; // shown on-screen only; PDF still headers with the real Bryan form
 const PARSE_ENDPOINT = "/api/parse";        // see api/parse-example.js — not live until deployed
 const PDF_TEMPLATE_URL = "bryan-template.pdf"; // the renamed, fillable Bryan Construction form
@@ -827,7 +828,7 @@ async function buildBryanPdf(entry) {
   }
 
   setText("project", PROJECT_NAME);
-  setText("subcontractor", COMPANY_NAME);
+  setText("subcontractor", SUBCONTRACTOR_NAME);
   setText("date", entry.date);
 
   (p.workActivity || []).slice(0, 4).forEach((row, i) => {

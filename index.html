@@ -1024,13 +1024,6 @@ function renderBryanReview(parsed) {
   return rows.join("");
 }
 
-function setCountBadge(id, n) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  if (n > 0) { el.textContent = n; el.classList.remove("hidden"); }
-  else { el.textContent = ""; el.classList.add("hidden"); }
-}
-
 // "1:41 PM" (local). Just enough to prove to the person that a fresh
 // attempt actually happened when they tapped Retry -- otherwise a repeat
 // failure re-renders an identical card and looks like the button did nothing.
@@ -1046,6 +1039,13 @@ function shortTime(iso) {
 function fmtDate(iso) {
   const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(iso || ""));
   return m ? `${m[2]}/${m[3]}/${m[1]}` : String(iso || "");
+}
+
+function setCountBadge(id, n) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  if (n > 0) { el.textContent = n; el.classList.remove("hidden"); }
+  else { el.textContent = ""; el.classList.add("hidden"); }
 }
 
 function renderLists() {
